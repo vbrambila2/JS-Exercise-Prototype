@@ -63,9 +63,9 @@ const allie = new Person('Allie', 20);
 const caleb = new Person('Caleb', 25);
 const tyler = new Person('Tyler', 30);
 
-// console.log('person one', allie.toString());
-// console.log('person two', caleb.toString());
-// console.log('person three', tyler.toString());
+console.log('person one', allie.toString());
+console.log('person two', caleb.toString());
+console.log('person three', tyler.toString());
 
 allie.eat('pizza');
 allie.eat('burger');
@@ -78,11 +78,11 @@ allie.eat('sushi');
 allie.eat('burrito');
 allie.eat('pop tart');
 
-//console.log('stomach with food', allie.stomach);
+console.log('stomach with food', allie.stomach);
 
 allie.poop();
 
-//console.log('stomach after poop', allie.stomach);
+console.log('stomach after poop', allie.stomach);
 
 
 
@@ -112,13 +112,18 @@ Car.prototype.fill = function(gallons){
   this.tank = this.tank + gallons;
 }
 
+Car.prototype.drive = function(distance){
+  this.odometer = this.odometer + distance;
+  this.tank = this.tank - (distance / this.milesPerGallon)
+}
+
 const yota = new Car('Toyota', 30);
-yota.fill(10)
+yota.fill(10);
+yota.drive(60);
 
 console.log('task 2', yota);
 console.log('fill', yota.tank);
-
-
+console.log('drive', yota.odometer, yota.tank);
 
 /*
   TASK 3
@@ -127,9 +132,21 @@ console.log('fill', yota.tank);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+}
+
+const stella = new Baby('Stella', 1, 'unicorn stuffed animal');
+
+console.log('task 3', stella);
+console.log('baby play', stella.play());
+
 
 
 /* 

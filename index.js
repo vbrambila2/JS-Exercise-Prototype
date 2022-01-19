@@ -152,10 +152,10 @@ console.log('baby play', stella.play());
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global Object binding - if you don't assign 'this' to something, it will return the window object which is an error. You don't want that.
+  2. Implicit Binding - whatever you have written before the dot becomes what is attached to 'this'. 
+  3. New Binding - we use the new keyword to connect 'this' and the object. Helps when making multiple instances of an object.
+  4. Explicit Binding - we bind the 'this' keyword to the object using 'call' or 'apply'. Personally, I find this one confusing and need to do more research.
 */
 
 

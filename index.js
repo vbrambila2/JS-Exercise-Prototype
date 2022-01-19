@@ -63,9 +63,9 @@ const allie = new Person('Allie', 20);
 const caleb = new Person('Caleb', 25);
 const tyler = new Person('Tyler', 30);
 
-console.log('person one', allie.toString());
-console.log('person two', caleb.toString());
-console.log('person three', tyler.toString());
+// console.log('person one', allie.toString());
+// console.log('person two', caleb.toString());
+// console.log('person three', tyler.toString());
 
 allie.eat('pizza');
 allie.eat('burger');
@@ -78,11 +78,11 @@ allie.eat('sushi');
 allie.eat('burrito');
 allie.eat('pop tart');
 
-console.log('stomach with food', allie.stomach);
+//console.log('stomach with food', allie.stomach);
 
 allie.poop();
 
-console.log('stomach after poop', allie.stomach);
+//console.log('stomach after poop', allie.stomach);
 
 
 
@@ -101,9 +101,23 @@ console.log('stomach after poop', allie.stomach);
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons){
+  this.tank = this.tank + gallons;
+}
+
+const yota = new Car('Toyota', 30);
+yota.fill(10)
+
+console.log('task 2', yota);
+console.log('fill', yota.tank);
+
 
 
 /*
